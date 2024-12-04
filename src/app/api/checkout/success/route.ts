@@ -15,7 +15,7 @@ export async function POST(request: Request) {
         const existingPurchase = await prisma.purchase.findFirst({
             where: {
                 userId: session.client_reference_id!,
-                bookId: session.metadata?.bookId!
+                bookId: session.metadata?.bookId
             }
         })
 
