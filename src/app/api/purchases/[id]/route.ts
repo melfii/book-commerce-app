@@ -4,9 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 // 購入履歴検索API
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } }) {
+    context: { params: { id: string } }) {
 
-        const { id } = await params;
+        const { id } = await context.params;
 
         try {
             const purchases = await prisma.purchase.findMany({
