@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 
 //https://nextjs.org/docs/app/building-your-application/routing/route-handlers#dynamic-route-segments
 export async function GET(
-  request: Request,
-  { params }: { params: { userId: string } }
+  request,
+  { params }
 ) {
   const { userId } = await params;
+  console.log("userId: ", userId);
 
   try {
     const purchase = await prisma.purchase.findMany({
