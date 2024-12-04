@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <title>Book commerce</title>
       <body
         className={notoSansJP.className}
       >
