@@ -4,7 +4,9 @@ const globalForPrisma = global as unknown as {
     prisma: PrismaClient | undefined;
 };
 
-globalForPrisma.prisma = new PrismaClient();
+if(!globalForPrisma.prisma) {
+    globalForPrisma.prisma = new PrismaClient();
+}
 
 const prisma: PrismaClient = globalForPrisma.prisma;
 
