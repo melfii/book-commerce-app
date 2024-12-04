@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import LogoutButton from "./LogoutButton";
+// import LogoutButton from "./LogoutButton";
 import { getServerSession } from "next-auth";
 import { nextAuthOptions } from "../lib/next-auth/options";
 
