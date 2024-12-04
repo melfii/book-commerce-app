@@ -1,28 +1,23 @@
 import prisma from "@/app/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
+// 購入履歴検索API
 export async function GET(
-  { params }: { params: { userId: string } }
-) {
-  const { userId } = params;
+    request: NextRequest,
+    { params }: { params: { userId: string } }) {
 
-  try {
-    // 購入履歴の取得
-    const purchases = await prisma.purchase.findMany({
-      where: {
-        userId: userId,
-      },
-    });
+        const { userId } = await params
 
-    return NextResponse.json(purchases);
-  } catch (error) {
-    // エラーのログを記録
-    console.error("Error fetching purchases:", error);
+        try {
+            const purchases = await prisma.purchase.findMany({
+                where: {
+                    userId: userId
+                }
+            })
 
-    // クライアントに汎用エラーメッセージを返す
-    return NextResponse.json(
-      { message: "Failed to fetch purchase history" },
-      { status: 500 }
-    );
-  }
+            return NextResponse.json(purchases);
+        } catch(error) {
+            return NextResponse.json(error);
+        }
+
 }
