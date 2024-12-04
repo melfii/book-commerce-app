@@ -1,9 +1,15 @@
 import { BookType } from "@/app/types/types";
 import { createClient } from "microcms-js-sdk";
 
+if (!process.env.NEXT_PUBLIC_SERVICE_DOMAIN || !process.env.NEXT_PUBLIC_API_KEY) {
+    throw new Error(
+      "Missing environment variables: NEXT_PUBLIC_SERVICE_DOMAIN or NEXT_PUBLIC_API_KEY"
+    );
+  }
+
 export const client = createClient({
-    serviceDomain: process.env.NEXT_PUBLIC_SERVICE_DOMAIN!,
-    apiKey: process.env.NEXT_PUBLIC_API_KEY!
+    serviceDomain: process.env.NEXT_PUBLIC_SERVICE_DOMAIN,
+    apiKey: process.env.NEXT_PUBLIC_API_KEY
 })
 
 export const getAllBooks = async () => {
