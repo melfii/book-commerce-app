@@ -11,14 +11,14 @@ export default async function Home() {
   const user = session?.user as User;
   let purchaseBookIds: string[] = [];
 
-  if(user) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/purchases/${user.id}`);
-    const purchasesData = await response.json();
+  // if(user) {
+  //   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/purchases/${user.id}`);
+  //   const purchasesData = await response.json();
 
-    purchaseBookIds = purchasesData.map(
-      (purchaseBook: Purchase) => purchaseBook.bookId 
-    );
-  }
+  //   purchaseBookIds = purchasesData.map(
+  //     (purchaseBook: Purchase) => purchaseBook.bookId 
+  //   );
+  // }
 
   return (
     <main className="flex flex-wrap justify-center items-center md:mt-32 mt-20">
