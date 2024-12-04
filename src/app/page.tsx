@@ -7,8 +7,8 @@ import { nextAuthOptions } from "./lib/next-auth/options";
 export default async function Home() {
 
   const { contents } = await getAllBooks();
-  const session = await getServerSession(nextAuthOptions);
-  const user = session?.user as User;
+  // const session = await getServerSession(nextAuthOptions);
+  // const user = session?.user as User;
   let purchaseBookIds: string[] = [];
 
   // if(user) {
